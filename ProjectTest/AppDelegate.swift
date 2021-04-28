@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ProjectTest
 //
-//  Created by md khan on 4/10/21.
+//  Created by mk on 4/10/21.
 //
 
 import UIKit
@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        print(applicationDocumentsDirectory)
         return true
     }
 
