@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  ProjectTest
 //
-//  Created by mk on 4/10/21.
+//  Created by Mariam Khan on 4/10/21.
 //
 
 import UIKit
@@ -21,10 +21,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
       let tabController = window!.rootViewController as! UITabBarController
         if let tabViewControllers = tabController.viewControllers {
+            // Initializing Managed Object Context for Checklist View Controller
             let navController = tabViewControllers[0] as! UINavigationController
-          let controller1 = navController.viewControllers.first
-                            as! ChecklistViewController
-          controller1.managedObjectContext = managedObjectContext
+            let controller1 = navController.viewControllers.first as! ChecklistViewController
+            controller1.managedObjectContext = managedObjectContext
+            // Initializing Managed Object Context for Settings View Controller
+            let navController2 = tabViewControllers[2] as! UINavigationController
+            let controller2 = navController2.viewControllers.first as! SettingsViewController
+            controller2.managedObjectContext = managedObjectContext
+            
         }
 
     }

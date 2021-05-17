@@ -2,23 +2,24 @@
 //  ChecklistItemCell.swift
 //  ProjectTest
 //
-//  Created by mk on 4/24/21.
+//  Created by Mariam Khan on 4/24/21.
 //
 
 import UIKit
 
+// Custom Cell Class for Checklist Cells
 class ChecklistItemCell: UITableViewCell {
     
     @IBOutlet var descriptionLabel: UILabel!
     
-    // MARK: - Helper Method
+    // Configuring Checklist Item for Display
     func configure(for checklistitem: ChecklistItem) {
-        // potential issue bc i was forced in to using a !
         if checklistitem.checklistTitle!.isEmpty {
         descriptionLabel.text = "(No Description)"
       } else {
         descriptionLabel.text = checklistitem.checklistTitle
       }
+        
     }
 
 

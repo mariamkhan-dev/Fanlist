@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ArtistStreamsViewController: UITableViewController{
+class ArtistSearchViewController: UITableViewController{
     @IBOutlet weak var searchArtistBar: UISearchBar!
     
     var listOfArtists = [Artist]() {
@@ -44,7 +44,7 @@ class ArtistStreamsViewController: UITableViewController{
     }
 }
 
-extension ArtistStreamsViewController : UISearchBarDelegate {
+extension ArtistSearchViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         guard let searchBarText = searchArtistBar.text else {return}

@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ProjectTest
 //
-//  Created by mk on 4/10/21.
+//  Created by Mariam Khan on 4/10/21.
 //
 
 import UIKit
@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        print(applicationDocumentsDirectory)
+        print(applicationDocumentsDirectory) // Helps find location of SQLite File
         return true
     }
 

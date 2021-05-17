@@ -2,7 +2,7 @@
 //  ChecklistItem+CoreDataProperties.swift
 //  ProjectTest
 //
-//  Created by m khan on 4/13/21.
+//  Created by Mariam Khan on 5/11/21.
 //
 //
 
@@ -17,6 +17,7 @@ extension ChecklistItem {
     }
 
     @NSManaged public var checklistTitle: String?
+    @NSManaged public var artist: ArtistItem?
 
 }
 

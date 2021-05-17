@@ -2,11 +2,14 @@
 //  Artist.swift
 //  ProjectTest
 //
-//  Created by mk on 4/27/21.
+//  Created by Mariam Khan on 4/27/21.
 //
+// CITATIONS:
+// 1. https://app.quicktype.io/ - Helped Create Structs
 
 import Foundation
 
+// Codable Struct for Artist Search API Call
 // MARK: - Welcome
 struct Welcome: Codable {
     let results: Results

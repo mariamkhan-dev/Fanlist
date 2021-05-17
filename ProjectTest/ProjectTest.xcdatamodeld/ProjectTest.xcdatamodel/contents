@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ArtistItem" representedClassName="ArtistItem" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="checklists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChecklistItem" inverseName="artist" inverseEntity="ChecklistItem"/>
+    </entity>
     <entity name="ChecklistItem" representedClassName="ChecklistItem" syncable="YES">
         <attribute name="checklistTitle" attributeType="String"/>
+        <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ArtistItem" inverseName="checklists" inverseEntity="ArtistItem"/>
     </entity>
     <elements>
-        <element name="ChecklistItem" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="ArtistItem" positionX="-63" positionY="-9" width="128" height="73"/>
+        <element name="ChecklistItem" positionX="-63" positionY="-18" width="128" height="73"/>
     </elements>
 </model>

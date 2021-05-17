@@ -1,24 +1,26 @@
 //
-//  ArtistSearchRequest.swift
+//  ArtistStreamsRequest.swift
 //  ProjectTest
 //
-//  Created by mk on 4/27/21.
+//  Created by Mariam Khan on 5/4/21.
 //
 
 import Foundation
 
-enum ArtistSearchError:Error {
+// Error Cases
+enum ArtistStreamsError:Error {
     case noDataAvailable
     case canNotProcessData
 }
 
-struct ArtistSearchRequest {
+//  Formatting API call URL - Top Tracks
+struct ArtistStreamsRequest {
     let resourceURL:URL
-    let API_KEY = "6becf21c411c156446fa0f443891dd5d"
+    let API_KEY = ""
     
-    init(artistSearch:String) {
+    init(artistStreams:String) {
         
-        let original = "https://ws.audioscrobbler.com/2.0/?method=artist.search&artist=\(artistSearch)&api_key=\(API_KEY)&format=json"
+    let original = "https://ws.audioscrobbler.com/2.0/?method=artist.getTopTracks&mbid=\(artistStreams)&api_key=\(API_KEY)&format=json"
         let resourceString = original.replacingOccurrences(of: " ", with: "+")
         guard let resourceURL = URL(string: resourceString) else {fatalError()}
         
@@ -26,7 +28,8 @@ struct ArtistSearchRequest {
         
     }
     
-    func getArtistSearch (completion: @escaping(Result<[Artist], ArtistSearchError>) -> Void) {
+// URLSession shared datatask to make API call
+    func getArtistStreams (completion: @escaping(Result<[Track], ArtistStreamsError>) -> Void) {
         let dataTask = URLSession.shared.dataTask(with: resourceURL) {data, _, _ in
             guard let jsonData = data else {
                 completion(.failure(.noDataAvailable))
@@ -34,9 +37,9 @@ struct ArtistSearchRequest {
             }
             do {
                 let decoder = JSONDecoder()
-                let artistsResponse = try decoder.decode(Welcome.self, from: jsonData)
-                let artistDetails = artistsResponse.results.artistmatches.artist
-                completion(.success(artistDetails))
+                let artistTracks = try decoder.decode(ArtistGetStreams.self, from: jsonData)
+                let artistsTracks = artistTracks.toptracks.track
+                completion(.success(artistsTracks))
                 
             } catch {
                 completion(.failure(.canNotProcessData))
